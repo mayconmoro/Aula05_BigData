@@ -1,40 +1,28 @@
-# Desenvolva um programa que solicite o valor de um ingresso e permita ao usuário escolher o tipo de entrada.
-# As opções disponíveis são:
-# ·	1 - Inteira (sem desconto); 
-# ·	2 - Meia entrada (50% de desconto); 
-# ·	3 - Promoção (30% de desconto). 
-# De acordo com a opção escolhida, o programa deve calcular e exibir o valor final do ingresso. Caso o usuário informe uma opção inválida, o programa deve exibir uma mensagem informando o erro.
+# ATIVIDADE
+# Uma escola deseja desenvolver um sistema para calcular a média final de seus alunos. Crie um programa que realize o cadastro de 10 alunos, recebendo 4 notas para cada um.
+# O sistema deverá calcular a média final de cada aluno a partir das notas informadas e, ao final de cada cadastro, exibir a média obtida com duas casas decimais.
+# -----------------------------------------------------------------------
 
-# Opções disponíveis
-print('''
-[1] - Inteira
-[2] - Meia Entrada (50% de desconto)
-[3] - Promoção (30% de desconto)
-''')
+for i in range(10):
+    nota1 = float(input('\nInserir a primeira nota: '))
+    nota2 = float(input('Inserir a segunda nota: '))
+    nota3 = float(input('Inserir a terceira nota: '))
+    nota4 = float(input('Inserir a quarta nota: '))
+    media = (nota1 + nota2 + nota3 + nota4) / 4
 
-# Opção definida pelo usuário.
-ingresso = int(input('Escolha uma opção de ingresso: '))
+    print(f'\nAluno {i + 1}')
+    print(f'A média do aluno foi {media:.2f}')
 
-# Variável pré-definida.
-valor_ingresso = 50
-desconto_meia = valor_ingresso * 0.5 # 50% de desconto
-desconto_promo = valor_ingresso * 0.3 # 30% de desconto
+# Versão professor
+for aluno in range(10):
+    print(f'\nAluno {aluno + 1}')
 
-# Processamento do pedido.
-match ingresso:
-    case 1:
-        print(f'\nOpção Inteira selecionada.\nValor do ingresso: R$ {valor_ingresso:.2f}')
-        print(f'Valor a pagar de R$ {valor_ingresso:.2f}')
-    
-    case 2:
-        print(f'\nOpção Meia Entrada selecionada.\nValor do ingresso: R$ {valor_ingresso:.2f}')
-        print(f'Desconto de R$ {desconto_meia:.2f}')
-        print(f'Valor a pagar de R$ {valor_ingresso - desconto_meia}')
+    soma = 0
+    for nota in range(4):
+        valor_nota = float(input(f'Informe a nota {nota + 1} do aluno: '))
+        soma += valor_nota
+        
+    media = soma / 4
+    print(f'\nA média do aluno {aluno + 1} foi {media:.2f}')
 
-    case 3:
-        print(f'\nOpção de Promoção selecionada.\nValor do ingresso: R$ {valor_ingresso:.2f}')
-        print(f'Desconto de R$ {desconto_promo:.2f}')
-        print(f'Valor a pagar de R$ {valor_ingresso - desconto_promo}')
-    
-    case _:
-        print('Opção Inválida, selecione entre as opções de 1 a 3')
+   
